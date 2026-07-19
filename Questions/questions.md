@@ -48,3 +48,18 @@ number.toFixed(2); // what happens?
 
 15. What happens to TypeScript-specific syntax and type information during the compilation process?
 15. During compilation, all TypeScript-specific syntax and type information is removed because it's not valid JavaScript. The compiler outputs equivalent JavaScript code with the smaller set of syntax that works in JavaScript environments. This allows the compiled code to run in browsers or Node.js while maintaining the benefits of type checking during development.
+
+16. What command is used to install TypeScript globally using npm?
+16. npm install -g typescript (or npm install global typescript). After installation, you can verify it worked by running 'tsc --version' to see the TypeScript compiler version number.
+
+17. What two flags are used with the TypeScript compiler (tsc) command to check a JavaScript file for errors without generating output files?
+17. --checkJs and --noEmit. These flags allow TypeScript to type check JavaScript files and report errors without producing any compiled output.
+
+18. What information does TypeScript provide in its error output when checking code?
+18. TypeScript error output includes: specific error identifiers (error codes), line numbers where problems occur, character position on each line, the file name where the error is located, and visual indicators like squiggles to highlight problematic code.
+
+19. What is a key advantage of using TypeScript to check JavaScript files at development time versus runtime?
+19. TypeScript can catch errors at development time (when writing code) before the code actually runs in the browser. This allows developers to identify problems like typos, incorrect property access, or type mismatches that would otherwise only surface as runtime errors in JavaScript.
+
+20. According to the content, what is considered a fundamental skill when working with TypeScript?
+20. Understanding and reading TypeScript error messages is considered a fundamental skill, described as being about 99% of working with TypeScript.
