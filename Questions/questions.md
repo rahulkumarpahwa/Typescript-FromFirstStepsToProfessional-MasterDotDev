@@ -63,3 +63,18 @@ number.toFixed(2); // what happens?
 
 20. According to the content, what is considered a fundamental skill when working with TypeScript?
 20. Understanding and reading TypeScript error messages is considered a fundamental skill, described as being about 99% of working with TypeScript.
+
+21. What additional errors does TypeScript report when using the --strict flag compared to non-strict mode?
+21. In strict mode, TypeScript reports errors for properties that do not exist on objects. For example, trying to console.log a non-existent property will cause an error in strict mode, whereas in non-strict mode TypeScript allows it since logging undefined is technically valid JavaScript.
+
+22. What is the purpose of the --strict flag when running the TypeScript compiler?
+22. The --strict flag tells TypeScript to be very strict with type checking and not let anything slide. It catches more potential issues than the default mode, giving developers more errors during development to prevent headaches for users later.
+
+23. Why does TypeScript report an error when reassigning a variable from an object to a string type?
+23. TypeScript infers the type of a variable based on its initial assignment. When a variable is first assigned an object with properties, TypeScript expects it to remain that type. Reassigning it to a completely different type like a string creates a type mismatch error because the new value is not assignable to the inferred object type.
+
+24. What command structure is used to run the TypeScript compiler in strict mode to check a JavaScript file without emitting output?
+24. The command is tsc --checkJs --noEmit --strict filename.js. The --checkJs flag enables type checking on JavaScript files, --noEmit prevents output file generation, and --strict enables strict type checking mode.
+
+25. Can TypeScript catch all bugs in your code, such as incorrect logical assignments or business logic errors?
+25. No, TypeScript cannot catch every bug in your code. It helps catch type-related errors like misspelled property names and type mismatches, but it cannot catch logical errors or incorrect business logic. Developers still need to think about what their code should do and ensure correct behavior beyond type safety.
