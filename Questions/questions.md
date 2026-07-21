@@ -96,3 +96,29 @@ This specifies that both parameters must be numbers and the function must return
 
 29. Can you declare a variable with a type annotation in TypeScript before assigning it a value? If so, how?
 29. Yes, you can declare a variable with a type annotation before assigning it a value. For example: let x: number; This declares that x will be a number, and when you later assign a value to it, TypeScript will enforce that it must be a number.
+
+30. In TypeScript, how can you specify that a variable must be one of several specific string values? For example, a state that can only be "alive" or "dead".
+30. You can use literal types combined with the pipe operator (|) to create a union of specific values. For example: let state: "alive" | "dead"; This means the state variable can only be assigned the literal string "alive" or "dead", and any other string value will cause a TypeScript error.
+
+31. How do you declare an array type in TypeScript that only contains numbers?
+31. You use the type followed by square brackets, like number[]. For example: let digits: number[] = [1, 2, 3]. This tells TypeScript that the array can only contain number values.
+
+32. What is the syntax for defining an object type in TypeScript with specific property types?
+32. You use curly brackets with property names followed by colons and their types. For example:
+
+let user: {
+  name: string;
+  id: number;
+}
+
+This defines an object that must have a name property of type string and an id property of type number.
+
+
+33. What happens if you try to push a string value into a TypeScript array that is typed as number[]?
+33. TypeScript will produce a compilation error because the array is typed to only accept number values. The error will indicate that the argument type doesn't match the expected type for the array's elements.
+
+34. How do you make a property optional in a TypeScript object type definition, and what type does it become?
+34. You add a question mark before the colon in the property definition. For example: color?: string. This makes the property optional, and TypeScript treats its type as string | undefined, meaning it can be either a string or undefined.
+
+35. What error does TypeScript produce if you try to access a method on an optional property without checking if it exists first? For example, calling .toUpperCase() on an optional color?: string property.
+35. TypeScript produces an error indicating that the property might be undefined, and you cannot call string methods on a value that might be undefined. You must first check that the property exists before calling methods on it.
