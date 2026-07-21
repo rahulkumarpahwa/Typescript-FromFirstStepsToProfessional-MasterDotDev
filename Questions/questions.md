@@ -156,3 +156,18 @@ elmOrNull.addEventListener('click', () => {});
 
 45. What happens to the type of a variable inside different branches of an if statement that checks the variable's type?
 45. TypeScript performs type narrowing within each branch. Inside the if block where a type check occurs, the variable's type is narrowed to only the type being checked for. In the else block, the type is narrowed to exclude the checked type, leaving only the remaining possible types from the original union.
+
+46. What file extension is used for TypeScript files?
+46. .ts is used for TypeScript files. To convert a JavaScript file to TypeScript, you rename the file from .js to .ts.
+
+47. What is TSX (TypeScript Execute) and what is its purpose?
+47. TSX is a utility tool that allows you to run TypeScript (.ts) files directly, similar to how Node runs JavaScript files. It's useful for executing TypeScript files without having to manually compile them first, especially when not using the latest Node versions that have built-in TypeScript support.
+
+48. How do you install and use TSX to run a TypeScript file in watch mode?
+48. First, install TSX globally using npm install -g tsx. Then, to run a TypeScript file in watch mode, use the command tsx --watch filename.ts. The watch flag will automatically rerun the file whenever changes are saved, without having to manually restart the process.
+
+49. Why is all JavaScript code considered valid TypeScript?
+49. All JavaScript code is valid TypeScript because TypeScript is a superset of JavaScript. This means that any valid JavaScript code is also valid TypeScript code, allowing for gradual migration from JavaScript to TypeScript.
+
+50. What are some TypeScript syntax features that can be used to define types?
+50. TypeScript includes several syntax features for defining types: type annotations for variables and function parameters, function return type annotations, type aliases for reusing types, union types using the pipe operator to combine types, and specific array and object type definitions.
