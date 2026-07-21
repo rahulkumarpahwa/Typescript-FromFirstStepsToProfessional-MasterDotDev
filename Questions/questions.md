@@ -122,3 +122,18 @@ This defines an object that must have a name property of type string and an id p
 
 35. What error does TypeScript produce if you try to access a method on an optional property without checking if it exists first? For example, calling .toUpperCase() on an optional color?: string property.
 35. TypeScript produces an error indicating that the property might be undefined, and you cannot call string methods on a value that might be undefined. You must first check that the property exists before calling methods on it.
+
+36. What is a union type in TypeScript and how is it declared?
+36. A union type is a way to tell TypeScript that a value can be any of several specified types. It is declared using the pipe operator (|). For example, number | string creates a type that can be either a number or a string. The union type represents the combination of all possible values from both types, like the union of two sets.
+
+37. How would you type a variable that can be either a single number, an array of numbers, or null?
+37. You would use the pipe operator to create a union type: number | number[] | null. This declares that the variable can hold a single number value, an array of numbers, or null. Each option is separated by the pipe operator to indicate the union of these types.
+
+38. What is the purpose of parentheses when creating an array type from a union type? For example, why are parentheses needed in (number | string)[]?
+38. Parentheses control the order of operations when combining union types with array syntax. (number | string)[] creates an array where each element can be either a number or a string. Without parentheses, number | string[] would mean either a single number or an array of strings, which is a different type. The parentheses ensure the union type is applied to each array element rather than making the entire array part of the union.
+
+39. Given the type declaration number[] | string[], what values would be valid?
+39. Valid values would be either an array containing only numbers (like [1, 2, 3]) or an array containing only strings (like ['a', 'b', 'c']). An array with mixed numbers and strings would not be valid, nor would a single number or string. The type specifies that the value must be one complete array of numbers OR one complete array of strings.
+
+40. What happens when you declare a variable with a type annotation but don't assign it a value? For example: let uninitiated: string;
+40. The variable will have a value of undefined until you assign it a value, which is standard JavaScript behavior. TypeScript will remember the type annotation (string in this example) and enforce that when you eventually assign a value, it must match that type. TypeScript may also warn you if you try to use the variable before assigning it a value, depending on your strictness settings.
