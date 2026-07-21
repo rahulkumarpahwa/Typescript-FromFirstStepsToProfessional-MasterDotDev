@@ -137,3 +137,22 @@ This defines an object that must have a name property of type string and an id p
 
 40. What happens when you declare a variable with a type annotation but don't assign it a value? For example: let uninitiated: string;
 40. The variable will have a value of undefined until you assign it a value, which is standard JavaScript behavior. TypeScript will remember the type annotation (string in this example) and enforce that when you eventually assign a value, it must match that type. TypeScript may also warn you if you try to use the variable before assigning it a value, depending on your strictness settings.
+
+41. In TypeScript, what is the relationship between the union type number | string and its constituent types number and string?
+41. The union type number | string is wider than both the type number and the type string. This means it encompasses more values than either of the primitive types individually, as it includes all possible numbers and all possible strings.
+
+42. What are type guards in TypeScript and when are they commonly used?
+42. Type guards are conditional checks, often implemented using if statements or ternary operators, that narrow down union types to handle different possible types separately. They are commonly used to prevent errors like trying to call methods on null or undefined values by checking the actual type before performing type-specific operations.
+
+43. Given the following code, why does TypeScript show an error?
+
+const elmOrNull: HTMLElement | null = document.getElementById('myId');
+elmOrNull.addEventListener('click', () => {});
+
+43. TypeScript shows an error because elmOrNull has the type HTMLElement | null, meaning it could be null. Trying to call addEventListener on a potentially null value is unsafe, as null doesn't have this method. A type guard is needed to check if the value is not null before calling the method.
+
+44. What is the purpose of type aliases in TypeScript and what keyword is used to create them?
+44. Type aliases allow you to create named references to types, making code more readable and maintainable by avoiding repetitive type annotations. They are created using the type keyword followed by a name in Pascal case (capitalized), an equals sign, and the type definition.
+
+45. What happens to the type of a variable inside different branches of an if statement that checks the variable's type?
+45. TypeScript performs type narrowing within each branch. Inside the if block where a type check occurs, the variable's type is narrowed to only the type being checked for. In the else block, the type is narrowed to exclude the checked type, leaving only the remaining possible types from the original union.
