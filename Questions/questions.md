@@ -78,3 +78,21 @@ number.toFixed(2); // what happens?
 
 25. Can TypeScript catch all bugs in your code, such as incorrect logical assignments or business logic errors?
 25. No, TypeScript cannot catch every bug in your code. It helps catch type-related errors like misspelled property names and type mismatches, but it cannot catch logical errors or incorrect business logic. Developers still need to think about what their code should do and ensure correct behavior beyond type safety.
+
+26. In TypeScript, how do you add a type annotation to a variable declaration?
+26. You add a type annotation using a colon followed by the type name. For example: let n: number = 5; This tells TypeScript that the variable n must always be a number.
+
+27. What is the difference between a primitive type and a literal type in TypeScript?
+27. A primitive type (like number or string) represents all possible values of that type. A literal type is a specific, exact value. For example, number allows any number, but the literal type 5 means the variable can only ever be the number 5. Literal types are useful when you want to restrict a variable to specific allowed values.
+
+28. How do you add type annotations to function parameters and return values in TypeScript? Provide an example with a function that adds two numbers.
+28. You add type annotations to parameters using a colon and type name after each parameter, and to the return value after the parentheses. For example:
+
+function add(a: number, b: number): number {
+  return a + b;
+}
+
+This specifies that both parameters must be numbers and the function must return a number.
+
+29. Can you declare a variable with a type annotation in TypeScript before assigning it a value? If so, how?
+29. Yes, you can declare a variable with a type annotation before assigning it a value. For example: let x: number; This declares that x will be a number, and when you later assign a value to it, TypeScript will enforce that it must be a number.
