@@ -270,3 +270,18 @@ If a function doesn't explicitly return a value, JavaScript returns undefined. T
 
 75. When targeting ES 2020 instead of ES5 in TypeScript, what is one noticeable difference in the output JavaScript code?
 75. When targeting ES 2020, the output JavaScript uses const and let keywords instead of var. The code also uses more modern JavaScript syntax and features that are specific to ES 2020.
+
+76. What is the purpose of the tsconfig.json file in a TypeScript project?
+76. The tsconfig.json file is a way to specify all of the TypeScript compiler options without having to write out the command line with all the flags every time you compile.
+
+77. Why is TypeScript typically installed as a development dependency rather than a regular dependency in a project?
+77. TypeScript is installed as a development dependency because it does not actually run - JavaScript runs. TypeScript is only used while writing code and working on the project, and isn't needed or able to be used in the end product.
+
+78. What command can be used to generate a new tsconfig.json file for a TypeScript project?
+78. You can use the command tsc --init to automatically generate a new tsconfig.json file for your project.
+
+79. What happens when you run the TypeScript compiler (tsc) with no arguments and no configuration?
+79. When you run tsc with no arguments and no configuration, it displays a help message showing all the options and information about what the compiler can do, but it doesn't actually compile anything.
+
+80. What is the npm command to install TypeScript as a development dependency in a project?
+80. You can use npm i -D typescript or the longer form npm install --save-dev typescript to install TypeScript as a development dependency.
