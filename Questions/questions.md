@@ -240,3 +240,18 @@ If a function doesn't explicitly return a value, JavaScript returns undefined. T
 
 65. What file extensions are used for TypeScript source files versus compiled JavaScript output files?
 65. TypeScript source files use the .ts extension, while the compiled output files use the .js extension. The compiler transforms .ts files into .js files that can be executed by JavaScript runtimes.
+
+66. What is the relationship between TypeScript and JavaScript in terms of their structure?
+66. TypeScript is a superset of JavaScript, meaning JavaScript is at the core of TypeScript. Everything about TypeScript is anchored in JavaScript, with TypeScript adding extra syntax and type information on top of the base JavaScript language.
+
+67. What happens to TypeScript type annotations and type aliases when a .ts file is compiled to a .js file?
+67. All type annotations, type aliases, and other TypeScript-specific syntax are removed during compilation. The resulting .js file contains only JavaScript code without any of the type information. This type information only exists at compile time, not at runtime.
+
+68. What does the checkJs flag do when passed to the TypeScript compiler?
+68. The checkJs flag tells the TypeScript compiler to also check JavaScript (.js) files in addition to its default behavior of checking TypeScript (.ts) files. This allows type checking to be performed on regular JavaScript files.
+
+69. What is the purpose of the noEmit flag in the TypeScript compiler?
+69. The noEmit flag prevents the TypeScript compiler from generating any output files (such as .js files). This is useful when you only want to perform type checking without actually producing compiled JavaScript output.
+
+70. What is the default input and output behavior of the TypeScript compiler (tsc)?
+70. By default, the TypeScript compiler takes .ts files as input and emits (outputs) .js files. The compiler automatically generates JavaScript files from TypeScript files without needing explicit instructions to do so.
