@@ -210,3 +210,18 @@ If a function doesn't explicitly return a value, JavaScript returns undefined. T
 
 55. What is type inference in TypeScript and how does it work with array methods like filter?
 55. Type inference is TypeScript's ability to automatically determine types without explicit annotations. With array methods like filter, TypeScript knows the type of elements being passed to the callback function based on the array's type. For example, if you have an array of Event objects, TypeScript automatically infers that the parameter in the filter callback is an Event, without requiring manual type annotation.
+
+56. What is the primary purpose of TSX (TypeScript Execute) as a development tool?
+56. TSX is a development tool that allows developers to quickly iterate on TypeScript files without having to manually convert them to JavaScript first. It can run TypeScript files directly in Node, making development faster, especially when used with the watch option that continuously runs and shows output.
+
+57. What is a key limitation of TSX compared to the TypeScript compiler (tsc)?
+57. TSX does not perform rigorous type checking like tsc does. While it runs TypeScript code as if it were JavaScript in Node, it skips the type checking process that the TypeScript compiler performs, which means it won't catch type errors that tsc would detect.
+
+58. What is the default behavior of the TypeScript compiler (tsc) when run without additional flags?
+58. By default, tsc compiles TypeScript files to JavaScript and emits corresponding .js files. For example, running tsc on a .ts file will generate a .js file with the compiled JavaScript code in the same directory.
+
+59. What does the noEmit flag do when used with the TypeScript compiler?
+59. The noEmit flag prevents the TypeScript compiler from generating JavaScript output files. When used, tsc will only perform type checking without emitting any compiled .js files, which is useful when you only want to verify types without generating output.
+
+60. Why might the TypeScript compiler be slower than tools like TSX during development?
+60. The TypeScript compiler has significant cognitive overhead because it analyzes not only your code but also type definitions for built-in JavaScript methods and other dependencies. This comprehensive type checking process requires more processing time compared to TSX, which simply runs the code without type checking.
