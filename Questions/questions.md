@@ -225,3 +225,18 @@ If a function doesn't explicitly return a value, JavaScript returns undefined. T
 
 60. Why might the TypeScript compiler be slower than tools like TSX during development?
 60. The TypeScript compiler has significant cognitive overhead because it analyzes not only your code but also type definitions for built-in JavaScript methods and other dependencies. This comprehensive type checking process requires more processing time compared to TSX, which simply runs the code without type checking.
+
+61. What is the purpose of the TypeScript compiler (tsc) when transforming TypeScript code?
+61. The TypeScript compiler transforms TypeScript files (.ts) into JavaScript files (.js) that browsers and Node.js can execute. It emits or compiles new JavaScript code that is automatically generated and may look different from the original source, removing TypeScript-specific syntax like type annotations.
+
+62. Why is it still often necessary to compile TypeScript to JavaScript instead of running .ts files directly?
+62. While some newer experimental versions of Node can run .ts files directly, JavaScript compilation is still necessary for browser environments and older runtime environments that only know how to execute .js files. This ensures broader compatibility across different execution environments.
+
+63. What is type inference in TypeScript?
+63. Type inference is the ability of the TypeScript compiler to automatically determine and understand the types in code without them being explicitly declared. For example, TypeScript can know about methods like the string filter method even when types aren't explicitly specified.
+
+64. What is the purpose of a tsconfig.json file in a TypeScript project?
+64. A tsconfig.json file is used to configure the TypeScript compiler, controlling how it transforms TypeScript code into JavaScript and specifying various compilation options and settings for the project.
+
+65. What file extensions are used for TypeScript source files versus compiled JavaScript output files?
+65. TypeScript source files use the .ts extension, while the compiled output files use the .js extension. The compiler transforms .ts files into .js files that can be executed by JavaScript runtimes.
