@@ -255,3 +255,18 @@ If a function doesn't explicitly return a value, JavaScript returns undefined. T
 
 70. What is the default input and output behavior of the TypeScript compiler (tsc)?
 70. By default, the TypeScript compiler takes .ts files as input and emits (outputs) .js files. The compiler automatically generates JavaScript files from TypeScript files without needing explicit instructions to do so.
+
+71. What does the TypeScript compiler's target flag specify?
+71. The target flag specifies which version of JavaScript (ECMAScript) the TypeScript compiler should output. It determines what syntax and features will be used in the compiled JavaScript code, ensuring compatibility with the intended runtime environment.
+
+72. What is the default target version used by the TypeScript compiler if no target is specified?
+72. The default target version is ES5. This provides broad browser compatibility by outputting JavaScript syntax that works in older environments.
+
+73. What does the target ES Next represent in TypeScript compiler options?
+73. ES Next is shorthand for the latest, most current version of JavaScript. Using this target means the output will contain the newest syntax and features, but may not work in older browsers or environments.
+
+74. What is the purpose of the TypeScript compiler's removeComments flag?
+74. The removeComments flag strips all comments from the output JavaScript file. When used, the compiled JavaScript will not include any comments that were present in the original TypeScript source code.
+
+75. When targeting ES 2020 instead of ES5 in TypeScript, what is one noticeable difference in the output JavaScript code?
+75. When targeting ES 2020, the output JavaScript uses const and let keywords instead of var. The code also uses more modern JavaScript syntax and features that are specific to ES 2020.

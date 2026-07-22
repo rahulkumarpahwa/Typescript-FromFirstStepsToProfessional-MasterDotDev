@@ -15,26 +15,21 @@ const events = [
         host_id: "3",
     },
 ];
-// Should return an event object, or null if not found
 function getEventById(id) {
     return events.filter((e) => e.id.toString() === id.toString())[0];
 }
-// Should return an object with dateString & isPast
 function getEventDate(event) {
     const eventDate = new Date(event.date);
     const dateString = eventDate.toDateString();
     const isPast = eventDate < new Date();
     return { dateString, isPast };
 }
-// Should return a string like '5 going' or '0 went'
 const getEventRsvpCount = (event) => {
     const count = event.rsvps?.length || 0;
     const { isPast } = getEventDate(event);
     const text = isPast ? "went" : "going";
     return [count, text].join(" ");
 };
-// Should return a string with the event's title, date, and rsvps
-// (if the event exists), or the string 'Event not found' (if not)
 const getEventDetails = (eventId) => {
     const event = getEventById(eventId);
     if (event) {
