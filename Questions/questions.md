@@ -171,3 +171,42 @@ elmOrNull.addEventListener('click', () => {});
 
 50. What are some TypeScript syntax features that can be used to define types?
 50. TypeScript includes several syntax features for defining types: type annotations for variables and function parameters, function return type annotations, type aliases for reusing types, union types using the pipe operator to combine types, and specific array and object type definitions.
+
+51. In TypeScript, how do you declare a type alias and what is the naming convention?
+51. You declare a type alias using the type keyword followed by the type name and its definition. The convention is to use capital letters for type names, similar to class names. For example:
+
+type Event = {
+  id: number;
+  title: string;
+}
+
+
+52. How do you make a property optional in a TypeScript type definition?
+52. You add a question mark (?) after the property name before the colon. For example:
+
+type Event = {
+  id: number;
+  imageURL?: string;
+  description?: string;
+}
+
+This indicates that imageURL and description are optional properties that may or may not be present.
+
+53. What is a union type in TypeScript and how is it declared?
+53. A union type allows a variable to be one of several types. It is declared using the pipe operator (|) between types. For example:
+
+type ID = string | number;
+
+This means an ID can be either a string or a number. The order of types in a union doesn't matter (e.g., string | number is the same as number | string).
+
+54. How do you specify the return type of a function in TypeScript, and what happens if a function doesn't explicitly return a value?
+54. You specify the return type after the function parameters using a colon followed by the type:
+
+function getEventDetails(id: number): string {
+  return "event details";
+}
+
+If a function doesn't explicitly return a value, JavaScript returns undefined. TypeScript will flag this as an error if you've declared a different return type, helping you catch missing return statements.
+
+55. What is type inference in TypeScript and how does it work with array methods like filter?
+55. Type inference is TypeScript's ability to automatically determine types without explicit annotations. With array methods like filter, TypeScript knows the type of elements being passed to the callback function based on the array's type. For example, if you have an array of Event objects, TypeScript automatically infers that the parameter in the filter callback is an Event, without requiring manual type annotation.
