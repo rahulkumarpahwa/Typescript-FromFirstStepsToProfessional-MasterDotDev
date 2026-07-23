@@ -285,3 +285,19 @@ If a function doesn't explicitly return a value, JavaScript returns undefined. T
 
 80. What is the npm command to install TypeScript as a development dependency in a project?
 80. You can use npm i -D typescript or the longer form npm install --save-dev typescript to install TypeScript as a development dependency.
+
+// https://cdn.master.dev/assets/courses/2025-10-09-typescript-first-steps/18-tsconfig-json-type-declarations_review.json
+81. 
+81. 
+
+82.
+82. 
+
+83. 
+83.
+
+84. 
+84. 
+
+85. 
+85.
