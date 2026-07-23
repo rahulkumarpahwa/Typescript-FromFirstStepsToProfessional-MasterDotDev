@@ -15,6 +15,7 @@ interface Event extends HasId {
 const EVENTS: Event[] = [];
 const USERS: User[] = [];
 
+
 function createNextId<T extends HasId>(data: T[]): Id {
     const lastItem = data[data.length - 1];
     if (!lastItem) {

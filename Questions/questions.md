@@ -389,3 +389,18 @@ What properties are required when creating an object of type Human?
 
 110. What is a generic type in TypeScript and how is it typically represented?
 110. A generic type is a type that is declared with angle brackets and parameters representing types that aren't known yet. Generic types can accept type parameters, similar to how functions accept data arguments. They are often represented with a letter like T in their definition, and can accept multiple parameters separated by commas.
+
+111. What is the any type in TypeScript and how does it affect type checking?
+111. The any type represents any type of value. When a variable is typed as any, TypeScript essentially stops type checking for that variable, making it behave like a regular JavaScript variable that can hold any value without compiler errors.
+
+112. What is the noImplicitAny compiler option in TypeScript?
+112. The noImplicitAny compiler option makes TypeScript complain when it encounters variables or function parameters without explicit type declarations that would default to any. By default, the compiler allows implicit any types, but enabling this option forces developers to explicitly declare types or use explicit any when needed.
+
+113. What problem can occur when using the any type in TypeScript?
+113. Using the any type bypasses TypeScript's type checking, which means errors that would normally be caught at compile time can slip through and cause runtime errors. For example, a variable might start as a string, be reassigned as a number, and then have string methods called on it, resulting in runtime failures.
+
+114. What does the // @ts-ignore comment do in TypeScript?
+114. The // @ts-ignore comment is a directive that tells TypeScript to ignore type errors on the following line. It effectively disables type checking for that specific line of code, allowing code to compile even if TypeScript would normally flag type errors.
+
+115. What happens when TypeScript uses type inference on a variable without an explicit type declaration?
+115. When a variable is initialized without an explicit type declaration, TypeScript will attempt to infer the type based on the initial value. For example, if a variable is initialized with a string value, TypeScript will infer that the variable should always hold strings. This inference can be overridden by explicitly declaring a type like any.
