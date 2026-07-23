@@ -358,3 +358,19 @@ What properties are required when creating an object of type Human?
 
 100. When using Readonly<User> in TypeScript, does it modify the original User type?
 100. No, using Readonly<User> does not modify the original User type. It creates a new, distinct type called Readonly<User> that has all the properties of User but made read-only. The original User type remains unchanged and continues to be as mutable as it was originally defined. This transformation creates a more specialized type without affecting the base type.
+
+101. What does the Partial utility type do to the properties of a type in TypeScript?
+101. The Partial utility type makes all properties of a type optional. It essentially adds a question mark after every property, allowing you to create objects with any subset of the original type's properties.
+
+
+102. Given a user type with properties username, id, and email, what would Partial<User> allow you to do?
+102. Partial<User> would allow you to create objects with any combination of these properties (including none at all), since all properties become optional. However, it still only allows properties that exist in the User type and would reject invalid properties that aren't part of the original type.
+
+103. What is the difference between the Pick and Omit utility types in TypeScript?
+103. Pick creates a new type by selecting only the specified properties from an existing type, while Omit creates a new type by excluding the specified properties. They are essentially opposites - Pick includes what you specify, Omit excludes what you specify.
+
+104. Given an interface Human with properties username, id, and fullName, what type would Pick<Human, 'id'> create?
+104. It would create a type that only has the id property from the Human interface. The resulting type would be a more specific subset of Human containing just that single property.
+
+105. What is a generic type in TypeScript and how is it typically represented?
+105. A generic type is a type that is declared with angle brackets and parameters representing types that aren't known yet. Generic types can accept type parameters, similar to how functions accept data arguments. They are often represented with a letter like T in their definition, and can accept multiple parameters separated by commas.
