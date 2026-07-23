@@ -301,3 +301,30 @@ If a function doesn't explicitly return a value, JavaScript returns undefined. T
 
 85. 
 85.
+
+86. What is the primary difference between using interface and type aliases for defining object types in TypeScript?
+86. Interfaces can be extended using the extends keyword, making them more composable and reusable. They allow you to create subtypes that inherit properties from parent interfaces, similar to inheritance in object-oriented programming. Interfaces also have some performance benefits over type aliases for object types.
+
+
+87. When an interface extends another interface in TypeScript, what properties does the child interface inherit?
+87. The child interface inherits all properties from the parent interface it extends. For example, if a Human interface extends a User interface that has username and id properties, the Human interface will automatically include those properties in addition to any properties it defines directly.
+
+88. What happens to TypeScript interfaces when the code is compiled to JavaScript?
+88. Interfaces do not exist in the output JavaScript. They are purely TypeScript entities used for type checking during development and are removed during compilation.
+
+89. Given this TypeScript code:
+
+interface User {
+  username: string;
+  id: number;
+}
+
+interface Human extends User {
+  fullName: string;
+}
+
+What properties are required when creating an object of type Human?
+89. An object of type Human requires all three properties: username (string), id (number), and fullName (string). The username and id are inherited from the User interface through the extends keyword.
+
+90. What is the conventional difference in syntax between defining an interface and a type alias for objects in TypeScript?
+90. Interfaces typically use semicolons to separate properties, while type aliases typically use commas. For example: interface User { name: string; id: number; } versus type User = { name: string, id: number }
