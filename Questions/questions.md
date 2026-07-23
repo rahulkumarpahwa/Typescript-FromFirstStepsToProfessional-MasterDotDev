@@ -328,3 +328,18 @@ What properties are required when creating an object of type Human?
 
 90. What is the conventional difference in syntax between defining an interface and a type alias for objects in TypeScript?
 90. Interfaces typically use semicolons to separate properties, while type aliases typically use commas. For example: interface User { name: string; id: number; } versus type User = { name: string, id: number }
+
+91. What is the return type of an async function that has a function body returning a string?
+91. The return type is a Promise<string>, not a string. Even though the function body returns a string, an async function always returns a Promise that wraps the returned value.
+
+92. In TypeScript, what do the angle brackets in Promise<string> represent?
+92. The angle brackets represent a type parameter being passed to the Promise type. The value inside the angle brackets (string in this case) specifies the type of value that the Promise will resolve to.
+
+93. What error does TypeScript report when trying to access the length property on a Promise<string> without awaiting it?
+93. TypeScript reports that 'property length does not exist on type Promise<string>' and helpfully suggests 'Did you forget to use await?'
+
+94. Can a variable declared as Promise<number> be assigned a value of type Promise<null> in TypeScript?
+94. No, TypeScript will report an error because Promise types with different type parameters are not compatible. A Promise<null> is not assignable to a variable declared as Promise<number>, even though both are Promises.
+
+95. Why does the Promise type need to be parameterized with another type using angle brackets?
+95. The Promise type itself is not useful without knowing what type of value it will resolve to. By parameterizing it (e.g., Promise<number> or Promise<string>), TypeScript can track what type of value will be available when the Promise is resolved or awaited.
