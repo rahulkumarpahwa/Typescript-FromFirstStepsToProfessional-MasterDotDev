@@ -374,3 +374,18 @@ What properties are required when creating an object of type Human?
 
 105. What is a generic type in TypeScript and how is it typically represented?
 105. A generic type is a type that is declared with angle brackets and parameters representing types that aren't known yet. Generic types can accept type parameters, similar to how functions accept data arguments. They are often represented with a letter like T in their definition, and can accept multiple parameters separated by commas.
+
+106. What does the Partial utility type do to the properties of a type in TypeScript?
+106. The Partial utility type makes all properties of a type optional. It essentially adds a question mark after every property, allowing you to create objects with any subset of the original type's properties.
+
+107. Given a user type with properties username, id, and email, what would Partial<User> allow you to do?
+107. Partial<User> would allow you to create objects with any combination of these properties (including none at all), since all properties become optional. However, it still only allows properties that exist in the User type and would reject invalid properties that aren't part of the original type.
+
+108. What is the difference between the Pick and Omit utility types in TypeScript?
+108. Pick creates a new type by selecting only the specified properties from an existing type, while Omit creates a new type by excluding the specified properties. They are essentially opposites - Pick includes what you specify, Omit excludes what you specify.
+
+109. Given an interface Human with properties username, id, and fullName, what type would Pick<Human, 'id'> create?
+109. It would create a type that only has the id property from the Human interface. The resulting type would be a more specific subset of Human containing just that single property.
+
+110. What is a generic type in TypeScript and how is it typically represented?
+110. A generic type is a type that is declared with angle brackets and parameters representing types that aren't known yet. Generic types can accept type parameters, similar to how functions accept data arguments. They are often represented with a letter like T in their definition, and can accept multiple parameters separated by commas.
