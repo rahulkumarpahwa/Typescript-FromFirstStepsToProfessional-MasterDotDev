@@ -404,3 +404,18 @@ What properties are required when creating an object of type Human?
 
 115. What happens when TypeScript uses type inference on a variable without an explicit type declaration?
 115. When a variable is initialized without an explicit type declaration, TypeScript will attempt to infer the type based on the initial value. For example, if a variable is initialized with a string value, TypeScript will infer that the variable should always hold strings. This inference can be overridden by explicitly declaring a type like any.
+
+116. What command-line tool is the core compiler for TypeScript?
+116. tsc (TypeScript compiler) is the core tool for compiling TypeScript files. It is described as the 'meat and potatoes' of TypeScript.
+
+117. What are the two primary ways to define custom types in TypeScript?
+117. Type aliases (declared with type) and interfaces are the two primary ways to define custom types in TypeScript.
+
+118. What TypeScript feature allows you to combine multiple types together?
+118. Unions allow you to combine multiple types together in TypeScript.
+
+119. What are type parameters used for in TypeScript?
+119. Type parameters are used with generic types to manipulate and parameterize types, allowing for flexible and reusable type definitions.
+
+120. What is the syntax for adding type annotations in TypeScript?
+120. Type annotations are added using colons. For example, you would write variable: type to annotate a variable with a specific type.
