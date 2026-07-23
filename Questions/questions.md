@@ -419,3 +419,18 @@ What properties are required when creating an object of type Human?
 
 120. What is the syntax for adding type annotations in TypeScript?
 120. Type annotations are added using colons. For example, you would write variable: type to annotate a variable with a specific type.
+
+121. What is the purpose of the --noEmit flag when using the TypeScript compiler (tsc)?
+121. The --noEmit flag tells the TypeScript compiler to check types without emitting or compiling files to JavaScript. It's used to verify that the compiler is happy with the types without generating output files.
+
+122. What is a common limitation of using the tsc --watch flag in larger TypeScript projects?
+122. The TypeScript compiler can become slow in larger projects because it has significant cognitive overhead - it needs to figure out all the types, built-in types, look at all source code in the repo, and all dependencies. This can cause everything to grind to a halt as the project grows.
+
+123. What does the && operator do when used between two commands in a package.json script, such as tsc --no-emit && vitest?
+123. The && operator ensures that the command on the left must succeed (return with a non-error status) before the command on the right will run. This ensures that if the first command fails, the second command will not execute.
+
+124. Why is tsc --noEmit commonly run before commands like test, build, or deploy in TypeScript projects?
+124. Running tsc --no-emit before these commands ensures that all types check out successfully before starting expensive or important operations. This prevents wasting time on long build processes or pushing code with type errors.
+
+125. How would you configure a test script in package.json to ensure type checking occurs before tests run?
+125. You would structure the script as: "test": "tsc --no-emit && vitest" (or your test runner of choice). This ensures the TypeScript compiler validates all types before the test runner starts.
