@@ -343,3 +343,18 @@ What properties are required when creating an object of type Human?
 
 95. Why does the Promise type need to be parameterized with another type using angle brackets?
 95. The Promise type itself is not useful without knowing what type of value it will resolve to. By parameterizing it (e.g., Promise<number> or Promise<string>), TypeScript can track what type of value will be available when the Promise is resolved or awaited.
+
+96. What is a generic type in TypeScript and how is it declared?
+96. A generic type is a type that takes in a type parameter inside angle brackets. It allows for reusable types where the actual type is not known at declaration time. The convention is to use a capital letter (usually T) as the type parameter. For example: type Nullable<T> = T | null declares a generic type where T is a parameter that will be instantiated later with a specific type.
+
+97. How does the Nullable generic type work and what problem does it solve?
+97. The Nullable generic type allows you to create a type that can be either the specified type or null. For example, type Nullable<T> = T | null means you can use Nullable<number> for a number or null, Nullable<string> for a string or null, etc. This solves the problem of having to manually create type unions like number | null, string | null for every type you want to nullify, making the code more flexible and reusable.
+
+98. What does the Readonly utility type do in TypeScript?
+98. The Readonly utility type makes all properties of a type read-only, preventing reassignment of those properties. For example, Readonly<User> creates a new type where all properties of User cannot be reassigned. This is shorthand for adding the readonly keyword before each property. It helps catch errors at compile time when code tries to modify values that should remain constant.
+
+99. What are utility types in TypeScript?
+99. Utility types are built-in parameterized types in TypeScript that can be used to manipulate or transform other types. They allow you to create specialized versions of existing types without having to manually declare new types. Examples include Readonly, which makes all properties read-only. They save the work of having to retype entire type declarations when you need a transformed version of an existing type.
+
+100. When using Readonly<User> in TypeScript, does it modify the original User type?
+100. No, using Readonly<User> does not modify the original User type. It creates a new, distinct type called Readonly<User> that has all the properties of User but made read-only. The original User type remains unchanged and continues to be as mutable as it was originally defined. This transformation creates a more specialized type without affecting the base type.
