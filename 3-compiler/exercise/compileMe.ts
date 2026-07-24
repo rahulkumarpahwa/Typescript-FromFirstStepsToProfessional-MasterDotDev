@@ -48,7 +48,7 @@ function createUser(username: string, name: string, email?: string): User {
 }
 
 // declare the missing EventDetailsWithoutIds type!
-function createEvent(host: User, eventDetails: Omit<Event, "id">): Event {
+function createEvent(host: User, eventDetails: Omit<Event, "id" | "host_id">): Event {
   const { date, title, image_url, description } = eventDetails;
   const eventDate = new Date(date);
 

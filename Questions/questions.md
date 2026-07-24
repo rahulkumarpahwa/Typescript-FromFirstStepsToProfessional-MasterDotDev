@@ -449,3 +449,18 @@ What properties are required when creating an object of type Human?
 
 130. What does the keyof operator do in TypeScript?
 130. keyof extracts a union type of all the keys from a given type. It works similar to Object.keys() in JavaScript but operates at the type level. For example, if a type has properties 'id', 'name', and 'email', keyof would produce the type 'id' | 'name' | 'email'.
+
+131. What is the primary purpose of the tsconfig.json file in a TypeScript project?
+131. The tsconfig.json file tells TypeScript what you want it to do by setting up the project configuration properly. It allows you to configure how TypeScript should behave for your particular use case and project requirements.
+
+132. In a full-stack TypeScript project with separate frontend and backend directories, how should each part typically be treated?
+132. Each part should be treated as basically separate entities. While they may exist in the same repository (monorepo style), the frontend and backend directories are independent projects with their own dependencies, configurations, and development servers.
+
+133. What is Express in the context of Node.js backend development?
+133. Express is a common server framework for Node.js used to build backend applications and APIs. It provides functionality for handling HTTP requests, routing, and serving data to client applications.
+
+134. What is Vite and what role does it play in modern frontend development?
+134. Vite is a popular build tool used in modern frontend web development. It handles the JavaScript build process and can be used with various frameworks including Vue, React, or Vanilla JS. It provides development server functionality and optimizes the build process for frontend applications.
+
+135. Why is it beneficial to reuse types across a TypeScript codebase rather than retyping them in multiple places?
+135. Reusing types is not just convenient but important for maintaining type safety and consistency across the codebase. It helps ensure that the same data structures are properly typed throughout the application and makes it easier to maintain and update type definitions when needed.
