@@ -464,3 +464,18 @@ What properties are required when creating an object of type Human?
 
 135. Why is it beneficial to reuse types across a TypeScript codebase rather than retyping them in multiple places?
 135. Reusing types is not just convenient but important for maintaining type safety and consistency across the codebase. It helps ensure that the same data structures are properly typed throughout the application and makes it easier to maintain and update type definitions when needed.
+
+136. What command is used to install TypeScript as a development dependency in a Node.js project?
+136. npm i -D typescript (where -D is shorthand for making it a development dependency instead of a regular runtime dependency)
+
+137. What command generates a tsconfig.json file in a TypeScript project?
+137. tsc --init
+
+138. Why is TypeScript typically installed as a development dependency rather than a runtime dependency?
+138. TypeScript is used during development for type checking and will not ship with the production code. It's only needed by developers during the development process.
+
+139. What message does the TypeScript compiler show when you run 'tsc' with no arguments in a project that has a tsconfig.json but no input files specified?
+139. "no inputs were found in config file" - which indicates it found the config file but has no files to compile
+
+140. Where can you find guidance on choosing appropriate TypeScript compiler options for your project?
+140. The TypeScript handbook includes a guide about choosing compiler options that helps you determine which options to use based on what you're building and what you're trying to accomplish with TypeScript.
