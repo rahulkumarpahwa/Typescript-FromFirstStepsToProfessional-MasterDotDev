@@ -1,4 +1,3 @@
-;
 const EVENTS = [];
 const USERS = [];
 function createNextId(data) {
@@ -19,7 +18,6 @@ function createUser(username, name, email) {
     if (email) {
         user.email = email;
     }
-    ;
     USERS.push(user);
     return user;
 }
@@ -36,11 +34,9 @@ function createEvent(host, eventDetails) {
     if (image_url) {
         event.image_url = image_url;
     }
-    ;
     if (description) {
         event.description = description;
     }
-    ;
     EVENTS.push(event);
     return event;
 }

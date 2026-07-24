@@ -434,3 +434,18 @@ What properties are required when creating an object of type Human?
 
 125. How would you configure a test script in package.json to ensure type checking occurs before tests run?
 125. You would structure the script as: "test": "tsc --no-emit && vitest" (or your test runner of choice). This ensures the TypeScript compiler validates all types before the test runner starts.
+
+126. How do you declare a union type in TypeScript for an ID that can be either a number or a string?
+126. Use the type keyword followed by the type name, an equals sign, and the types separated by a pipe symbol: type ID = number | string
+
+127. How do you indicate that a property is optional in a TypeScript interface?
+127. Add a question mark after the property name before the colon, for example: email?: string. This is equivalent to saying the property is of type string | undefined.
+
+128. What is the purpose of the omit utility type in TypeScript?
+128. The omit utility type creates a new type by removing specified properties from an existing type. For example, omit<Event, 'id' | 'host_id'> creates a type with all properties of Event except for 'id' and 'host_id'.
+
+129. Why should you use the type keyword instead of interface when working with utility types like omit?
+129. The type keyword allows you to use an equals sign to assign the result of a utility type as an alias, like type EventDetails = omit<Event, 'id'>. Interfaces have different syntax and are designed for object-shaped types that will be extended, not for assigning utility type results.
+
+130. What does the keyof operator do in TypeScript?
+130. keyof extracts a union type of all the keys from a given type. It works similar to Object.keys() in JavaScript but operates at the type level. For example, if a type has properties 'id', 'name', and 'email', keyof would produce the type 'id' | 'name' | 'email'.
