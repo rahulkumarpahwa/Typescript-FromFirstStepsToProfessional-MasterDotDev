@@ -494,3 +494,18 @@ What properties are required when creating an object of type Human?
 
 145. What command can you use to see the final resolved configuration that TypeScript is using, including options inherited from base configs?
 145. You can use the command tsc --showConfig to display the complete resolved configuration that TypeScript will use, including all options inherited from base configurations and any overrides specified in your local tsconfig.json file.
+
+146. What is the purpose of .d.ts declaration files in TypeScript projects?
+146. .d.ts declaration files provide type information for JavaScript files. They allow TypeScript to understand the types and structure of JavaScript modules without requiring the actual code to be converted to TypeScript. This is particularly useful when gradually migrating a codebase from JavaScript to TypeScript, as declaration files can exist alongside JavaScript files to provide type safety.
+
+147. What does the 'noImplicitAny' compiler option do in TypeScript?
+147. The 'noImplicitAny' compiler option requires developers to explicitly declare types for variables, parameters, and return values. When enabled, TypeScript will report errors for any values that would implicitly have the 'any' type, forcing developers to add type annotations and improving type safety throughout the codebase.
+
+148. How can you determine what types to declare when converting a JavaScript file to TypeScript?
+148. You can determine appropriate types by examining multiple sources: looking at how the code is used throughout the application, reviewing test files to see expected inputs and outputs, and checking backend API code to understand the shape of data coming from the server. These sources help you understand what properties and structures objects should have.
+
+149. What error message does TypeScript show when it encounters a JavaScript module without type information?
+149. TypeScript displays an error message stating 'Could not find a declaration file for this module,' indicating that it has no type information about what types are in the module. This occurs when importing JavaScript modules that don't have accompanying .d.ts declaration files.
+
+150. Why is VS Code useful when fixing TypeScript errors in a project?
+150. VS Code reads the tsconfig.json file and displays TypeScript errors directly in the editor with visual indicators (squiggles). This provides the same type-checking information that would appear on the command line but in a more convenient, visual format that makes it easier to identify and fix errors as you work.
