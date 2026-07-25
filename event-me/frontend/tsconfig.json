@@ -2,7 +2,10 @@
   "extends" : ["@tsconfig/recommended/tsconfig.json", "@tsconfig/vite-react/tsconfig.json"],
   // Visit https://aka.ms/tsconfig to read more about this file
   "compilerOptions": {
-    "checkJs" : false
+    "checkJs" : false,
+    "types": [
+      "vite/client"
+    ]
 
     // we are going to remove all the options and just put the checkJs option turn on for our work. other options will be extended from the extension above.
 

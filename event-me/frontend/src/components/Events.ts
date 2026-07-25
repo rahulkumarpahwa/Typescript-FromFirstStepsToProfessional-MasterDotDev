@@ -1,4 +1,4 @@
-import { Calendar } from './Icons.js';
+import { Calendar } from './Icons.ts';
 
 const API_URL = import.meta.env.VITE_API_URL;
 

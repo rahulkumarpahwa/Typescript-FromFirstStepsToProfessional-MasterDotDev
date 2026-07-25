@@ -524,3 +524,28 @@ What properties are required when creating an object of type Human?
 
 155. What happens when you run tsc --showConfig on a minimal tsconfig.json that has no extends property and no additional options?
 155. When running tsc --showConfig with a minimal config that extends nothing, you only see the options explicitly defined in your tsconfig.json file and the TypeScript files that match the default patterns, without any additional settings from base configurations.
+
+156. What is the purpose of TypeScript declaration files (.d.ts)?
+156. Declaration files (.d.ts) provide type information for regular JavaScript code. They allow TypeScript to understand what types exist in .js files, which don't themselves contain type information. This enables TypeScript to provide IntelliSense, type hints, and autocomplete for JavaScript modules.
+
+157. How can you configure TypeScript to recognize additional type definitions that it might not automatically find? 
+157. You can use the 'types' option in tsconfig.json, which accepts an array of type definition packages. For example, to include Vite's client-side type definitions, you would add:
+
+"types": ["vite/client"]
+
+This tells TypeScript where to find extra type declarations that aren't automatically discovered.
+
+158. What does Vite's import.meta.env provide and why does TypeScript need special configuration to understand it?
+158.  import.meta.env is a Vite-specific feature that exposes environment-specific information (like dev vs production environments). TypeScript needs special configuration to understand it because it's not a standard JavaScript or TypeScript feature. The type definitions for these Vite-specific concepts are provided in vite/client.d.ts, which must be explicitly referenced in the TypeScript configuration.
+
+159. When importing your own TypeScript modules, what are the options for specifying the file extension in the import statement?
+159. You can either delete the extension entirely or type it out verbatim with the .ts extension. For example, if you rename a file from icons.js to icons.ts, you can import it as either:
+
+import ... from './icons'
+
+or
+
+import ... from './icons.ts'
+
+160. Where does Vite provide its type definitions for client-side TypeScript development?
+160. Vite provides type definitions for client-side development in vite/client.d.ts. This file contains type definitions for Vite-specific features like import.meta.env, asset handling, and other functionality that Vite exposes to the development environment.
