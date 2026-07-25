@@ -509,3 +509,18 @@ What properties are required when creating an object of type Human?
 
 150. Why is VS Code useful when fixing TypeScript errors in a project?
 150. VS Code reads the tsconfig.json file and displays TypeScript errors directly in the editor with visual indicators (squiggles). This provides the same type-checking information that would appear on the command line but in a more convenient, visual format that makes it easier to identify and fix errors as you work.
+
+151. What command can be used to view the complete TypeScript configuration that tsc is using, including all inherited settings from base configurations?
+151. The tsc --showConfig command displays the complete configuration that tsc understands, including all options inherited from extended base configurations and the files it will process.
+
+152. How does TypeScript's extends property in tsconfig.json work when multiple base configurations are specified?
+152. When extending multiple base configurations in tsconfig.json, TypeScript creates a mashup of all the settings from those bases. Settings from later configurations can override settings from earlier ones, similar to inheritance in object-oriented programming.
+
+153. What is the default value of the checkJs option in TypeScript, and what does it control?
+153. The checkJs option is set to false by default. When enabled, it allows TypeScript to type-check JavaScript (.js) files in addition to TypeScript (.ts) files.
+
+154. Where can you find the actual configuration settings defined in a TypeScript base configuration package like @tsconfig/recommended?
+154. You can find the actual configuration settings by searching for the package on npm (e.g., npm tsconfig recommended) or by visiting the tsconfig/bases repository on GitHub. The npm page will link to the tsconfig.json file that the package provides.
+
+155. What happens when you run tsc --showConfig on a minimal tsconfig.json that has no extends property and no additional options?
+155. When running tsc --showConfig with a minimal config that extends nothing, you only see the options explicitly defined in your tsconfig.json file and the TypeScript files that match the default patterns, without any additional settings from base configurations.
