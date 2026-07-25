@@ -549,3 +549,18 @@ import ... from './icons.ts'
 
 160. Where does Vite provide its type definitions for client-side TypeScript development?
 160. Vite provides type definitions for client-side development in vite/client.d.ts. This file contains type definitions for Vite-specific features like import.meta.env, asset handling, and other functionality that Vite exposes to the development environment.
+
+161. What is the difference between the Event type that TypeScript infers by default and a custom event type for a meetups application?
+161. TypeScript's default Event type refers to browser events (like click or touch events) that are part of the DOM (Document Object Model). This is a built-in type related to the wider web ecosystem. A custom event type for a meetups application would represent a different kind of event (like a meetup event) with properties such as ID, title, description, date, host information, and RSVPs.
+
+162. How do you declare an array type in TypeScript using square brackets?
+162. To declare an array type in TypeScript, you place square brackets after the type. For example, if you have an object type with properties like ID, name, and email, you can make it an array by adding square brackets after the type definition. This tells TypeScript you want an array of that specific type of object.
+
+163. What happens in JavaScript when you try to access a property that doesn't exist on an object, and how does this behave in a template string?
+163. When you access a property that doesn't exist on an object in JavaScript, it returns undefined. When this undefined value is used in a template string, it gets stringified and converted to the literal string "undefined", which becomes part of the resulting string.
+
+164. Why doesn't TypeScript require you to install extra types for built-in JavaScript features like the Date constructor?
+164. TypeScript comes with built-in type declarations for all standard JavaScript features out of the box. These declarations are included with TypeScript itself, so you don't need to install additional types or add anything to the types array in tsconfig.json. The beating heart of TypeScript is JavaScript, and all built-ins already have their type declarations provided.
+
+165. What types of values can the JavaScript Date constructor accept according to TypeScript's type definitions?
+165. According to TypeScript's built-in type definitions, the Date constructor can accept three types of values: a string, a number, or another Date object. This allows for flexible date creation from different input formats.

@@ -1,6 +1,25 @@
-import { Calendar } from './Icons.ts';
+import { Calendar } from "./Icons.ts";
 
 const API_URL = import.meta.env.VITE_API_URL;
+
+interface Event {
+  id: number;
+  title: string;
+  description?: string;
+  date: Date;
+  image_url?: string;
+  host_id: number;
+  host: {
+    id: number;
+    name: string;
+    email: string;
+  };
+  rsvps?: {
+    id: number;
+    name: string;
+    email: string;
+  }[];
+}
 
 const loadEventsData = async () => {
   try {
@@ -9,12 +28,11 @@ const loadEventsData = async () => {
   } catch (e) {
     console.error(e);
   }
-}
+};
 
-
-export const EventModal = (event) => {
-  const formId = `rsvp-form-${event.ID}`;
-  const modalId = `modal-event-${event.id}`
+export const EventModal = (event: Event) => {
+  const formId = `rsvp-form-${event.id}`;
+  const modalId = `modal-event-${event.id}`;
   return `<dialog id="${modalId}">
       <article>
         <header>
@@ -49,10 +67,10 @@ export const EventModal = (event) => {
 
         </footer>
       </article>
-    </dialog>`
-}
+    </dialog>`;
+};
 
-export const EventCard = (e) => {
+export const EventCard = (e: Event) => {
   const eventDate = new Date(e.date);
   const isPast = eventDate < new Date();
   return `
@@ -69,37 +87,42 @@ export const EventCard = (e) => {
     </main>
     <footer>
         <span>
-            ${e.rsvps?.length || 0} ${isPast ? 'went' : 'going'}
+            ${e.rsvps?.length || 0} ${isPast ? "went" : "going"}
         </span>
-        ${!isPast ? `
+        ${
+          !isPast
+            ? `
             <button role="button" data-target="modal-event-${e.id}" class="toggle-modal"
             title="RSVP to ${e.title}"
             >
         RSVP
-        </button>`: ''}
+        </button>`
+            : ""
+        }
     </footer>
     ${EventModal(e)}
 </article>
-    `
-}
+    `;
+};
 
-export const EventsSection = (title, events) => {
+export const EventsSection = (title: string, events: Event[]) => {
   return `
   <section class='events'>
       <h2>${title} events </h2>
           <div role = "group">
-              ${events.map((e) => EventCard(e)).join('') || 'No events'}
+              ${events.map((e) => EventCard(e)).join("") || "No events"}
       </div>
   </section>`;
-}
+};
 
 // IIFE to asynchronously load the Event data before exporting the component
 // https://developer.mozilla.org/en-US/docs/Glossary/IIFE
 export const Events = await (async () => {
   const all = await loadEventsData();
-  const past = all.filter((e) => (new Date(e.date) < new Date()));
-  const upcoming = all.filter((e) => (new Date(e.date) > new Date()));
+  const past = all.filter((e: Event) => new Date(e.date) < new Date());
+  const upcoming = all.filter((e: Event) => new Date(e.date) > new Date());
   return `
-    ${EventsSection('Upcoming', upcoming)}
-    ${EventsSection('Past', past)}
-`})()
+    ${EventsSection("Upcoming", upcoming)}
+    ${EventsSection("Past", past)}
+`;
+})();
