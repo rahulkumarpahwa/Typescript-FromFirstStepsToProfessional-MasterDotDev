@@ -10,8 +10,12 @@
     "test": "vitest"
   },
   "devDependencies": {
+    "@tsconfig/recommended": "^1.0.13",
     "typescript": "^7.0.2",
     "vite": "^7.1.2",
     "vitest": "^3.2.4"
+  },
+  "dependencies": {
+    "@tsconfig/vite-react": "^8.1.1"
   }
 }

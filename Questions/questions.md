@@ -479,3 +479,18 @@ What properties are required when creating an object of type Human?
 
 140. Where can you find guidance on choosing appropriate TypeScript compiler options for your project?
 140. The TypeScript handbook includes a guide about choosing compiler options that helps you determine which options to use based on what you're building and what you're trying to accomplish with TypeScript.
+
+141. What is the purpose of the tsconfig/bases repository on GitHub?
+141. The tsconfig/bases repository provides a collection of base configuration files that serve as starting points for different TypeScript projects and use cases. These out-of-the-box configs correspond to various Node versions, JavaScript runtimes (like Bun), and frontend frameworks (like React and Svelte), allowing developers to avoid reinventing the wheel for each new TypeScript project.
+
+142. How do you use a base TypeScript configuration from the tsconfig/bases repository in your project?
+142. First, install the desired base configuration as a dev dependency using npm (for example: npm i -D @tsconfig/recommended). Then, add an extends property at the top level of your tsconfig.json file (not inside compilerOptions) with the path to the base configuration file, such as "extends": "@tsconfig/recommended/tsconfig.json".
+
+143. Can you extend multiple base configurations in a single tsconfig.json file? If so, how?
+143. Yes, you can extend multiple base configurations by making the extends property an array. For example: "extends": ["@tsconfig/recommended/tsconfig.json", "@tsconfig/vite-react/tsconfig.json"]. This allows you to inherit and combine settings from multiple base configurations.
+
+144. What is the default value of the checkJs compiler option in TypeScript, and what does it control?
+144. The default value of checkJs is false. This option controls whether TypeScript will type-check JavaScript files in addition to TypeScript files. When set to true, TypeScript will analyze and report errors in .js files as well as .ts files.
+
+145. What command can you use to see the final resolved configuration that TypeScript is using, including options inherited from base configs?
+145. You can use the command tsc --showConfig to display the complete resolved configuration that TypeScript will use, including all options inherited from base configurations and any overrides specified in your local tsconfig.json file.

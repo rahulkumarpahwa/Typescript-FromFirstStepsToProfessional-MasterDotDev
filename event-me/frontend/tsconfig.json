@@ -1,15 +1,20 @@
 {
+  "extends" : ["@tsconfig/recommended/tsconfig.json", "@tsconfig/vite-react/tsconfig.json"],
   // Visit https://aka.ms/tsconfig to read more about this file
   "compilerOptions": {
+    "checkJs" : false
+
+    // we are going to remove all the options and just put the checkJs option turn on for our work. other options will be extended from the extension above.
+
     // File Layout
     // "rootDir": "./src",
     // "outDir": "./dist",
 
-    // Environment Settings
-    // See also https://aka.ms/tsconfig/module
-    "module": "nodenext",
-    "target": "esnext",
-    "types": [],
+      // Environment Settings
+     // See also https://aka.ms/tsconfig/module
+    // "module": "nodenext",
+    // "target": "esnext",
+    // "types": [],
     // For nodejs:
     // "lib": ["esnext"],
     // "types": ["node"],
@@ -21,8 +26,8 @@
     // "declarationMap": true,
 
     // Stricter Typechecking Options
-    "noUncheckedIndexedAccess": true,
-    "exactOptionalPropertyTypes": true,
+    // "noUncheckedIndexedAccess": true,
+    // "exactOptionalPropertyTypes": true,
 
     // Style Options
     // "noImplicitReturns": true,
@@ -33,12 +38,12 @@
     // "noPropertyAccessFromIndexSignature": true,
 
     // Recommended Options
-    "strict": true,
-    "jsx": "react-jsx",
-    "verbatimModuleSyntax": true,
-    "isolatedModules": true,
-    "noUncheckedSideEffectImports": true,
-    "moduleDetection": "force",
-    "skipLibCheck": true,
+    // "strict": true,
+    // "jsx": "react-jsx",
+    // "verbatimModuleSyntax": true,
+    // "isolatedModules": true,
+    // "noUncheckedSideEffectImports": true,
+    // "moduleDetection": "force",
+    // "skipLibCheck": true,
   }
 }
