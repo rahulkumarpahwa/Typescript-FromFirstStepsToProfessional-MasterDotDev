@@ -28,7 +28,7 @@ const loadEventsData = async (): Promise<Event[]> => {
     return response.json();
   } catch (e) {
     console.error(e);
-    return []
+    return [];
   }
 };
 
@@ -75,6 +75,7 @@ export const EventModal = (event: Event) => {
 export const EventCard = (e: Event) => {
   const eventDate = new Date(e.date);
   const isPast = eventDate < new Date();
+  const descriptionString = e.description || "";
   return `
 <article class="event" >
 <header>
@@ -85,7 +86,7 @@ export const EventCard = (e: Event) => {
         <p>${Calendar} ${eventDate.toLocaleDateString()}</p>
         <p>Host: ${e.host?.name || `User ${e.host_id}`}</p>
 
-        ${e.description && `<p>${e.description}</p>`}
+        ${`<p>${descriptionString}</p>`}
     </main>
     <footer>
         <span>

@@ -14,7 +14,7 @@ const animationDuration = 400; // ms
 let visibleModal = null;
 
 // Toggle modal
-const toggleModal = (event) => {
+const toggleModal = (event :Event) => {
     event.preventDefault();
     const modal = document.getElementById(event.currentTarget.dataset.target);
     if (!modal) return;

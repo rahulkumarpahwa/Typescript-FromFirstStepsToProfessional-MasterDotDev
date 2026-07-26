@@ -14,13 +14,18 @@ const Header = `
 </header>
 `;
 
+type Theme = "light" | "dark";
+
 const toggleDarkMode = () => {
   const doc = document.documentElement;
   const currentTheme = doc.getAttribute("data-theme");
+  let newTheme: Theme;
   if (currentTheme === "dark") {
-    doc.setAttribute("data-theme", "lite");
+    newTheme = "light";
+    doc.setAttribute("data-theme", newTheme);
   } else if (currentTheme === "light") {
-    doc.setAttribute("data-theme", "dark");
+    newTheme = "dark";
+    doc.setAttribute("data-theme", newTheme);
   }
 };
 export function setupThemeToggle() {

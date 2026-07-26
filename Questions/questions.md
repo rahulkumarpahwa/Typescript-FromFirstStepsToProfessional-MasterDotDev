@@ -614,3 +614,18 @@ emailInput.addEventListener('click', handler);
 
 175. Why might TypeScript report an error about FormDataEntryValue not being assignable to type string?
 175. A FormDataEntryValue can be either a string or a File object (for file uploads). If you're trying to use it where only a string is expected (like in URL search parameters), TypeScript will error because a File is not assignable to string. You can fix this by explicitly casting to string if you know files won't be present.
+
+176. What are TypeScript literal types and when are they useful?
+176. Literal types in TypeScript allow you to specify exact values that a variable can have, rather than just a broad type like string. They are useful when you want to restrict a value to specific options. For example, you can create a type like type theme = 'dark' | 'light' to ensure a variable can only be one of those two exact string values, preventing typos and invalid values.
+
+177. How can TypeScript help prevent misspellings in string values?
+177. TypeScript can prevent misspellings by using literal union types. Instead of declaring a variable as a general string type, you can define a type with specific allowed values. For example, type theme = 'dark' | 'light' will cause TypeScript to flag any attempt to use misspelled values like 'lite' instead of 'light', catching these errors at compile time.
+
+178. What is the difference between static type checking and runtime testing in TypeScript?
+178. Static type checking occurs at development/compile time before the code runs, where TypeScript verifies that data types flow correctly through the code. Runtime testing actually executes the code and verifies the output behavior. TypeScript can catch type-related errors statically, but it cannot detect all logic errors or runtime behaviors, such as rendering 'undefined' as a string in a template. This is why test suites are still necessary alongside TypeScript's type checking.
+
+179. What happens when you use the logical AND operator (&&) with an undefined value in a string template?
+179. When using the logical AND operator (&&) with an undefined value, if the left operand is undefined, the entire expression evaluates to undefined. When this result is placed in a string template, JavaScript calls undefined.toString(), which produces the literal string 'undefined' in the output. To avoid this, you should use alternatives like the ternary operator or the nullish coalescing operator to provide a fallback value such as an empty string.
+
+180. Does TypeScript eliminate the need for test suites and programming judgment?
+180. No, TypeScript does not replace test suites or a programmer's judgment. While TypeScript verifies that data types flow correctly through code at compile time, it cannot determine if the code behaves as intended at runtime. For example, TypeScript won't know if rendering 'undefined' as a string is a problem for users. Developers still need test suites, integration tests, and critical thinking to ensure code behaves correctly in addition to type checking.

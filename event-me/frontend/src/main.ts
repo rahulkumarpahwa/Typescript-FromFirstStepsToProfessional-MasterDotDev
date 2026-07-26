@@ -1,15 +1,15 @@
 import './style.css'
 import Header, { setupThemeToggle } from './components/Header';
-import Main from './components/Main';
-import Footer from './components/Footer';
-import { setupModals } from './components/Modal';
-import { setupForms } from './components/Forms';
+import Main from './components/Main.ts';
+import Footer from './components/Footer.ts';
+import { setupModals } from './components/Modal.ts';
+import { setupForms } from './components/Forms.ts';
 
 
 // Quick and dirty - not for production!
-const render = (html) => {
+const render = (html: string) => {
   const app = document.querySelector('#app');
-  app.innerHTML = html;
+  app!.innerHTML = html;
   setupThemeToggle();
   setupModals();
   setupForms();
