@@ -644,3 +644,18 @@ emailInput.addEventListener('click', handler);
 
 185. What tsconfig.json compiler option prevents TypeScript from outputting JavaScript files during compilation?
 185. Setting "noEmit": true in the compiler options prevents TypeScript from generating any output files, which is useful when only type-checking is needed.
+
+186. What is the purpose of the Definitely Typed project?
+186. Definitely Typed is an open source initiative that provides type declaration files for JavaScript libraries that don't come with built-in TypeScript types. It essentially serves as the missing types for the JavaScript ecosystem, allowing TypeScript developers to use popular JavaScript libraries with proper type checking.
+
+187. How do you install type declarations for a JavaScript package using the @types namespace?
+187. You install type declarations by using npm with the -D flag (dev dependency) followed by @types/ and the package name. For example, to install types for Express, you would run: npm i -D @types/express. This pattern works for most common JavaScript packages that have community-maintained type definitions.
+
+188. Why does TypeScript need additional type declaration files for JavaScript libraries?
+188. TypeScript needs additional type declaration files because many JavaScript libraries don't come with built-in TypeScript declarations. Without these declaration files, TypeScript cannot understand what types of values, functions, and objects these libraries provide, which prevents TypeScript from performing proper type checking when using these libraries.
+
+189. What command would you use to install type declarations for the Node.js runtime environment?
+189. You would use the command: npm i -D @types/node. This installs the type declarations for Node.js as a development dependency, allowing TypeScript to understand Node.js built-in modules and APIs.
+
+190. How does the TypeScript community contribute to the availability of type declarations for JavaScript libraries?
+190. The community contributes through the Definitely Typed open source project. When developers need type declarations for a library that doesn't have them, they can write and publish the type definitions themselves, making them available for other developers to use. This community-driven approach has resulted in type declarations being available for most common JavaScript libraries.
