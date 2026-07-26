@@ -659,3 +659,18 @@ emailInput.addEventListener('click', handler);
 
 190. How does the TypeScript community contribute to the availability of type declarations for JavaScript libraries?
 190. The community contributes through the Definitely Typed open source project. When developers need type declarations for a library that doesn't have them, they can write and publish the type definitions themselves, making them available for other developers to use. This community-driven approach has resulted in type declarations being available for most common JavaScript libraries.
+
+191. What TypeScript compiler option needs to be enabled to allow importing files with .ts extensions?
+191. The allowImportingTsExtensions compiler option needs to be enabled in tsconfig.json to allow importing files with .ts extensions.
+
+192. How can you install TypeScript type definitions for a third-party library like better-sqlite3?
+192. You can install type definitions using npm with the command npm i -D @types/better-sqlite3. The types are installed as a dev dependency from the @types organization on npm.
+
+193. What VS Code command can help resolve issues when TypeScript continues showing errors after installing type definitions or changing tsconfig?
+193. You can restart the TypeScript server by opening the command palette with Command+Shift+P and selecting the 'TypeScript: Restart TS Server' command. This can help resolve issues where VS Code hasn't caught up with recent changes.
+
+194. How does VS Code provide TypeScript error checking without manually running the tsc command?
+194. VS Code runs TypeScript-related services in the background that automatically check types, files, and the entire codebase using the tsconfig.json configuration. This integration provides real-time error highlighting and file indicators without manual compilation.
+
+195. What error message appears when function parameters or return types are missing type annotations in TypeScript?
+195. TypeScript displays an 'implicit any' error when function signatures lack type annotations for parameters or return types, indicating that TypeScript is inferring the 'any' type by default.
