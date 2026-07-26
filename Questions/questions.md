@@ -629,3 +629,18 @@ emailInput.addEventListener('click', handler);
 
 180. Does TypeScript eliminate the need for test suites and programming judgment?
 180. No, TypeScript does not replace test suites or a programmer's judgment. While TypeScript verifies that data types flow correctly through code at compile time, it cannot determine if the code behaves as intended at runtime. For example, TypeScript won't know if rendering 'undefined' as a string is a problem for users. Developers still need test suites, integration tests, and critical thinking to ensure code behaves correctly in addition to type checking.
+
+181. What package should be extended in tsconfig.json when setting up TypeScript for a Node.js backend project to avoid updating configuration with every new Node version?
+181. @tsconfig/node-lts, which provides configuration for the long-term support version of Node and automatically stays current with the LTS release.
+
+182. What command can be used to view the complete TypeScript compiler configuration after extending from a base config?
+182. tsc --show-config displays all the configuration options, including those inherited from extended configs and the files being included in compilation.
+
+183. What package must be installed to provide type definitions for Node.js built-in modules and globals like 'process'?
+183. @types/node must be installed as a dev dependency to provide TypeScript type declarations for Node.js runtime features.
+
+184. After installing @types/node, what additional configuration is required in tsconfig.json to make TypeScript recognize Node.js types?
+184. You must add "node" to the "types" array in the compiler options of tsconfig.json, for example: "types": ["node"]
+
+185. What tsconfig.json compiler option prevents TypeScript from outputting JavaScript files during compilation?
+185. Setting "noEmit": true in the compiler options prevents TypeScript from generating any output files, which is useful when only type-checking is needed.
