@@ -726,3 +726,18 @@ type UserID = User['id']
 
 210. In TypeScript, what are index access types and what is their syntax?
 210. Index access types allow you to access the type of a specific property on an object type or interface. The syntax uses angle brackets with the property name as a string: TypeName['propertyName']. For example, User['id'] would give you the type of the id property on the User interface. This is similar to how you access object properties in JavaScript, but operates at the type level.
+
+211. What is a type assertion in TypeScript and what keyword is used to perform it?
+211. A type assertion is a way to explicitly tell TypeScript to understand a value as having a particular type when you know better than TypeScript what the type will be. It uses the as keyword followed by the type name. For example: const button = document.getElementById('myButton') as HTMLButtonElement. Type assertions don't change the actual value at runtime - they only affect TypeScript's compile-time type checking.
+
+212. Why might document.getElementById() require a type assertion in TypeScript?
+212. The document.getElementById() method returns either an HTMLElement (a wide base type) or null because TypeScript cannot know if an element with that ID actually exists in the DOM, or what specific type of element it is (button, form, div, etc.). When you know the specific element type that will be returned (like HTMLButtonElement), you can use a type assertion to tell TypeScript the more specific type.
+
+213. How does type assertion differ from type casting in JavaScript?
+213. Type casting in JavaScript is a runtime operation that actually converts values from one type to another (like converting a number to a string). Type assertion in TypeScript is a compile-time only concept that tells the TypeScript compiler to treat a value as a specific type without changing the actual value. No values are affected by type assertions - they only influence TypeScript's type checking.
+
+214. What is the risk of using type assertions with the as keyword in TypeScript?
+214. Type assertions are dangerous because you are overriding TypeScript's type inference and telling it to trust that you know better about the type. If your assertion is incorrect, TypeScript won't catch type errors that could occur at runtime. This is similar to using any or ts-ignore - you're bypassing TypeScript's safety checks and living dangerously, which may not always be the best idea.
+
+215. In the code const events = db.getAllEvents() as Event[], why is a type assertion needed when retrieving data from a database?
+215. Database libraries like better-sqlite3 return types like unknown or unknown[] because the library developers cannot predict what kind of data you will store in your database. TypeScript also has no way of knowing what data structure your database queries will return. A type assertion is needed so you, as the developer who knows your database schema, can tell TypeScript what specific type (like Event[]) the query will return.

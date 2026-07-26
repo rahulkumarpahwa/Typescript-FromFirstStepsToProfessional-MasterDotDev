@@ -6,14 +6,15 @@ import type { Id, User } from "../types/types.ts";
 const router = Router();
 
 type UserId = User["id"]; // index access types. it is done over the interface. It is used to pick the particular only type out of the whole type defined like the user. where as the Pick<> creates the same User's new type with only the properties we defined.
-// type PickedUserId = Pick<User, "id">; 
+// type PickedUserId = Pick<User, "id">;
+// pick returns a subset object structure while index access returns a single property's type
 
 export const getUser = (userId: UserId): User => {
   if (typeof userId === "string") {
     userId = parseInt(userId, 10);
   }
   const byId = db.prepare("SELECT * FROM users WHERE id = @userId");
-  return byId.get({ id: userId });
+  return byId.get({ id: userId }) as User;
 };
 
 router.get("/", (_req: Request, res: Response<User[]>) => {
@@ -39,7 +40,8 @@ router.get(
     res: Response<{ error: string } | User>,
   ): void => {
     const id = req.params.id;
-    const user = getUser(id);
+    const userId = parseInt(id, 10);
+    const user = getUser(userId);
     if (!user) {
       res.status(404).json({ error: "User not found" });
     }
@@ -61,14 +63,16 @@ router.patch("/:id", (req: Request<{ id: string }>, res: Response) => {
   });
 
   updateUser(Object.entries(patch));
-  const updated = getUser(userId);
+  const id = parseInt(userId, 10);
+  const updated = getUser(id);
   res.json(updated);
 });
 
 router.delete("/:id", (req: Request<{ id: string }>, res: Response) => {
   const deleteUser = db.prepare(`DELETE FROM users WHERE id = @userId`);
   const userId = req.params.id;
-  const user = getUser(userId);
+  const id = parseInt(userId, 10);
+  const user = getUser(id);
   if (!user) {
     res.status(404).json({ error: "User not found" });
   }

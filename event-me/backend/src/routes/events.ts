@@ -11,14 +11,14 @@ const joinHost = (event: Event): Event => {
   return { ...event, host };
 };
 
-const joinRSVPs = (event: Event): Event => {
+const joinRSVPs = (event: Event) => {
   const { id } = event;
   const getRSVPs = db.prepare("SELECT * FROM rsvps WHERE event_id = @id");
   const rsvps: Rsvp[] = getRSVPs.all({ id }) as Rsvp[];
   return { ...event, rsvps };
 };
 
-const getEvent = (eventId: string | number | bigint) => {
+const getEvent = (eventId: number) => {
   if (typeof eventId === "string") {
     eventId = parseInt(eventId, 10);
   }
@@ -30,7 +30,7 @@ const getEvent = (eventId: string | number | bigint) => {
 router.get("/", (req: Request, res: Response) => {
   const listEvents = db.prepare(`SELECT * FROM events`);
   const events = listEvents.all() as Event[];
-  res.json(events.map((event) => joinHost(event)).map(joinRSVPs));
+  res.json(events.map(joinHost).map(joinRSVPs));
 });
 
 const insertEvent = db.prepare(
@@ -40,13 +40,14 @@ const insertEvent = db.prepare(
 router.post("/new", (req: Request, res: Response) => {
   const data = req.body;
   const { lastInsertRowid: id } = insertEvent.run(data);
-  const event = getEvent(id);
+  const event = getEvent(Number(id));
   res.status(201).json(event);
 });
 
 router.get("/:id", (req: Request<{ id: string }>, res: Response) => {
   const id = req.params.id;
-  const event = getEvent(id);
+  const eventId = parseInt(id, 10);
+  const event = getEvent(eventId);
   if (!event) {
     return res.status(404).json({ error: "Event not found" });
   }
@@ -67,7 +68,8 @@ router.patch("/:id", (req: Request<{ id: string }>, res: Response) => {
   });
 
   updateEvent(Object.entries(patch));
-  const updated = getEvent(eventId);
+  const id = parseInt(eventId, 10);
+  const updated = getEvent(id);
   res.json(updated);
 });
 
