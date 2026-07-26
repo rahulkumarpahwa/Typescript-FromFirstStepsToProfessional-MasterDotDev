@@ -5,7 +5,8 @@
     "checkJs" : false,
     "types": [
       "vite/client"
-    ]
+    ],
+     "lib": ["ES2023", "DOM", "DOM.Iterable"]
 
     // we are going to remove all the options and just put the checkJs option turn on for our work. other options will be extended from the extension above.
 

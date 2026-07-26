@@ -2,7 +2,7 @@ import { Calendar } from "./Icons.ts";
 
 const API_URL = import.meta.env.VITE_API_URL;
 
-interface Event {
+export interface Event {
   id: number;
   title: string;
   description?: string;

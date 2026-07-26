@@ -585,3 +585,32 @@ events.map(e => { ... })
 
 170. What does TypeScript's never[] type represent, and when might you encounter it?
 170. never[] represents an array that will never contain anything. You might encounter it when returning an empty array literal without any type context or operations that would populate it, and TypeScript cannot infer what type of elements should be in the array.
+
+NOTE : Q: It looks like DOM.iterable is no longer being included in @tsconfig/vite-react config file. How would I support this?
+A: As of version 8.0.6, DOM.iterable was removed. In this project, pin the library to an earlier version or add it back to your tsconfig.json:
+
+{
+  "extends": "@tsconfig/vite-react/tsconfig.json",
+  "compilerOptions": {
+    "lib": ["ES2023", "DOM", "DOM.Iterable"]
+  }
+}
+
+171. What TypeScript type represents a function that is not supposed to return anything?
+171. The void type represents a function that is not supposed to return anything. It is used for functions that perform side effects without returning a value.
+
+172. When using document.querySelectorAll('form') in TypeScript, what type does it return?
+172. It returns a NodeList of HTMLFormElement elements. This is a built-in type that TypeScript knows about because it corresponds to DOM entities.
+
+173. Why does TypeScript report that a variable from querySelector is possibly null, and how can you handle this?
+
+const emailInput = form.querySelector('#email');
+emailInput.addEventListener('click', handler);
+
+173. The querySelector method can return either an Element or null if nothing is found. You can handle this by narrowing the type with an if block (if (emailInput) { ... }), using optional chaining (emailInput?.addEventListener(...)), or returning early (if (!emailInput) return;).
+
+174. What is type narrowing in TypeScript, and how does it work with if blocks?
+174. Type narrowing is the process of refining a wider union type to a more specific type. When you use an if block to check if a value is truthy (e.g., if (emailInput)), TypeScript understands that inside the block, the type is narrowed down and will not be null or undefined.
+
+175. Why might TypeScript report an error about FormDataEntryValue not being assignable to type string?
+175. A FormDataEntryValue can be either a string or a File object (for file uploads). If you're trying to use it where only a string is expected (like in URL search parameters), TypeScript will error because a File is not assignable to string. You can fix this by explicitly casting to string if you know files won't be present.
