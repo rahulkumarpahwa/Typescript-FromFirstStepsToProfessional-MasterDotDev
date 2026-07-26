@@ -704,3 +704,25 @@ emailInput.addEventListener('click', handler);
 
 205. Why might you encounter a type conflict when using a custom Event interface in TypeScript, and how can you resolve it?
 205. You might encounter a conflict because TypeScript may default to using built-in types like the browser's Event interface (for clicks, scrolls, etc.) instead of your custom Event type. You can resolve this by explicitly importing and using your custom Event type with import type { Event } from your types file, making it clear to TypeScript which Event type you intend to use.
+
+206. In TypeScript, how can you access the type of a specific property from an interface or object type?
+206. You can use index access types with angle brackets syntax. For example, if you have a User interface with an id property, you can access its type using User['id']. This will give you the type of that specific property (e.g., number) rather than an object containing that property.
+
+207. What is the difference between using the pick utility type and index access types to extract a property type from an interface?
+
+For example, comparing:
+
+type PickedUserID = Pick<User, 'id'>
+type UserID = User['id']
+
+207. The pick utility type returns an object type containing the selected properties (e.g., { id: number }), while index access types return just the type of the specific property (e.g., number). Use pick when you need a subset object structure, and use index access when you only need the type of an individual property.
+
+208. How can TypeScript and VS Code work together to automatically add import statements when you use a type annotation?
+208. When you start typing a type annotation and press tab to autocomplete, VS Code and TypeScript can automatically add the corresponding import type statement at the top of your file. This happens when TypeScript identifies the type you're referencing from another module and VS Code inserts both the type annotation and the import statement.
+
+
+209. What is the purpose of using import type statements in TypeScript?
+209. import type statements are used to import type definitions from other modules in TypeScript. They allow you to reuse type definitions across multiple files without having to redeclare interfaces, types, or other type annotations in each file where they're needed.
+
+210. In TypeScript, what are index access types and what is their syntax?
+210. Index access types allow you to access the type of a specific property on an object type or interface. The syntax uses angle brackets with the property name as a string: TypeName['propertyName']. For example, User['id'] would give you the type of the id property on the User interface. This is similar to how you access object properties in JavaScript, but operates at the type level.

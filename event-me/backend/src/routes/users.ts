@@ -5,7 +5,10 @@ import type { Id, User } from "../types/types.ts";
 
 const router = Router();
 
-export const getUser = (userId: Id): User => {
+type UserId = User["id"]; // index access types. it is done over the interface. It is used to pick the particular only type out of the whole type defined like the user. where as the Pick<> creates the same User's new type with only the properties we defined.
+// type PickedUserId = Pick<User, "id">; 
+
+export const getUser = (userId: UserId): User => {
   if (typeof userId === "string") {
     userId = parseInt(userId, 10);
   }
