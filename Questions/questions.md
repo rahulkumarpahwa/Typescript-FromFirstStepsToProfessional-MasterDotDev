@@ -674,3 +674,18 @@ emailInput.addEventListener('click', handler);
 
 195. What error message appears when function parameters or return types are missing type annotations in TypeScript?
 195. TypeScript displays an 'implicit any' error when function signatures lack type annotations for parameters or return types, indicating that TypeScript is inferring the 'any' type by default.
+
+196. Where is it recommended to define TypeScript types instead of declaring them inline where they are used?
+196. Types should be defined in their own separate file, commonly named 'types.ts' or similar, in the source directory. This allows types to be written in one place and then imported and used in multiple other places throughout the codebase.
+
+197. When creating an Event interface that includes host information, how should the host property be typed if you want to reuse the user type across your application?
+197. Instead of inlining the host object properties within the Event interface, you should create a separate User interface and then reference it as the type for the host property. For example: host: User. This allows the User type to be used independently throughout the application.
+
+198. If an Event has multiple RSVPs, how should the RSVPs property be typed in TypeScript?
+198. The RSVPs property should be typed as an array of RSVP objects. First, define a single RSVP interface with its properties, then in the Event interface, declare the property as an array: rsvps: RSVP[].
+
+199. What are the three main interfaces that would typically be created for an event management application?
+199. The three main interfaces would be: Event (representing event details), User (representing user information), and RSVP (representing a user's response to attending an event). These interfaces can reference each other, such as Event containing a User type for the host and an array of RSVP types.
+
+200. Why is it beneficial to extract inline type definitions into separate interfaces?
+200. Extracting inline type definitions into separate interfaces allows those types to be reused independently throughout the application. For example, a User type can be used both as a host property in an Event and separately when creating or managing users, avoiding code duplication and ensuring consistency.
