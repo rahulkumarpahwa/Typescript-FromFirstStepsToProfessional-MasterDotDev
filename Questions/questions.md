@@ -741,3 +741,18 @@ type UserID = User['id']
 
 215. In the code const events = db.getAllEvents() as Event[], why is a type assertion needed when retrieving data from a database?
 215. Database libraries like better-sqlite3 return types like unknown or unknown[] because the library developers cannot predict what kind of data you will store in your database. TypeScript also has no way of knowing what data structure your database queries will return. A type assertion is needed so you, as the developer who knows your database schema, can tell TypeScript what specific type (like Event[]) the query will return.
+
+216. What is type safety in TypeScript?
+216. Type safety refers to code that won't give runtime type errors (like "cannot read properties of undefined"). It ensures that as data flows through a program, the types of data are all checking out, making code more predictable, less buggy, and more safe. While there may still be other bugs, type-related errors are prevented.
+
+217. What does "end-to-end type safety" mean in a full-stack application?
+217. End-to-end type safety means having type-safe interactions from the front-end (what users see) all the way back to the back-end and possibly even the database. It involves sharing type information between the front-end and back-end so that throughout the entire application, you can be confident that you won't be passing undefined values or incorrect types at any layer.
+
+218. What is Zod and what problem does it solve in TypeScript projects?
+218. Zod is a TypeScript-first schema validation library that bridges the gap between runtime JavaScript objects and TypeScript types. It allows developers to validate data at runtime in actual JavaScript code while also providing type information to TypeScript during development. This ensures that data has the correct shape both when the code is running and when TypeScript is checking types during development.
+
+219. What happens when you use type assertions to force TypeScript to consider types it doesn't believe are correct?
+219. When you force TypeScript to consider types that it didn't really believe were going to be that type, you break some of the type safety that TypeScript guarantees. This undermines the protection that TypeScript provides against runtime type errors.
+
+220. What is TypeORM and what purpose does it serve in the TypeScript ecosystem?
+220. TypeORM is an Object Relational Mapping tool that helps ensure database data and program data share the same schemas. It provides a type-aware way to work with databases, addressing the issue where type information can break down at the database level.
