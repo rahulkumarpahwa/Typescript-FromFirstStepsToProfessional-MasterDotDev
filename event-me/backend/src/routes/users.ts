@@ -1,16 +1,16 @@
 import { Router } from "express";
 import db from "../db.ts";
 import type { Request, Response } from "express";
-import type { User } from "../types/types.ts";
+import type { Id, User } from "../types/types.ts";
 
 const router = Router();
 
-export const getUser = (userId: string | number | bigint): User => {
+export const getUser = (userId: Id): User => {
   if (typeof userId === "string") {
     userId = parseInt(userId, 10);
   }
   const byId = db.prepare("SELECT * FROM users WHERE id = @userId");
-  return byId.get({ userId }) as User;
+  return byId.get({ id: userId });
 };
 
 router.get("/", (_req: Request, res: Response<User[]>) => {
@@ -25,18 +25,24 @@ router.post("/new", (req: Request, res: Response<User>): void => {
   const vals = Object.values(data).join(" , ");
   const insertUser = db.prepare(`INSERT INTO users(@cols) VALUES (@vals)`);
   const { lastInsertRowid: id } = insertUser.run({ cols, vals });
-  const user: User = getUser(id);
+  const user: User = getUser(Number(id));
   res.json(user);
 });
 
-router.get("/:id", (req: Request<{ id: string }>, res: Response<{error : string} | User>) : void => {
-  const id = req.params.id;
-  const user = getUser(id);
-  if (!user) {
-    res.status(404).json({ error: "User not found" });
-  }
-  res.json(user);
-});
+router.get(
+  "/:id",
+  (
+    req: Request<{ id: string }>,
+    res: Response<{ error: string } | User>,
+  ): void => {
+    const id = req.params.id;
+    const user = getUser(id);
+    if (!user) {
+      res.status(404).json({ error: "User not found" });
+    }
+    res.json(user);
+  },
+);
 
 router.patch("/:id", (req: Request<{ id: string }>, res: Response) => {
   const userId = req.params.id;

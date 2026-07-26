@@ -689,3 +689,18 @@ emailInput.addEventListener('click', handler);
 
 200. Why is it beneficial to extract inline type definitions into separate interfaces?
 200. Extracting inline type definitions into separate interfaces allows those types to be reused independently throughout the application. For example, a User type can be used both as a host property in an Event and separately when creating or managing users, avoiding code duplication and ensuring consistency.
+
+201. How do you import only types from a TypeScript module, and where do you place the type keyword?
+201. You can import only types by using the type keyword in your import statement. You can either place it before individual type names like import { type Event, type ID } or before the curly braces to apply to all imports like import type { Event, ID } from the module.
+
+202. How do you export a type from a TypeScript module so it can be used in other files?
+202. You export a type by placing the export keyword in front of the type declaration. For example: export interface Event { ... } or export type ID = number | string;. Once exported, the type can be imported and used in other modules.
+
+203. In VS Code, what feature can you use to find where a type is defined, and why might this be useful when debugging type conflicts?
+203. You can right-click on a type and select "Go to Type Definition" to see where a type is defined. This is useful when debugging type conflicts because it helps you determine if TypeScript is using a built-in type (like a browser Event) or your custom type definition, especially when there are naming conflicts.
+
+204. What is the difference between using import { Event } versus import type { Event } in TypeScript?
+204. Using import { Event } imports a value that would exist at runtime in JavaScript (like a class or function). Using import type { Event } imports only the type information for TypeScript's type checking, which is stripped out during compilation and does not exist at runtime.
+
+205. Why might you encounter a type conflict when using a custom Event interface in TypeScript, and how can you resolve it?
+205. You might encounter a conflict because TypeScript may default to using built-in types like the browser's Event interface (for clicks, scrolls, etc.) instead of your custom Event type. You can resolve this by explicitly importing and using your custom Event type with import type { Event } from your types file, making it clear to TypeScript which Event type you intend to use.

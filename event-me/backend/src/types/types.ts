@@ -1,3 +1,5 @@
+export type Id = number;
+
 export interface Rsvp {
   event_id: number;
   name: string;
@@ -5,14 +7,14 @@ export interface Rsvp {
 }
 
 export interface User {
-  id: number;
+  id: Id;
   name: string;
   email: string;
   username: string;
 }
 
 export interface Event {
-  id: number;
+  id: Id;
   title: string;
   description?: string;
   date: Date;
