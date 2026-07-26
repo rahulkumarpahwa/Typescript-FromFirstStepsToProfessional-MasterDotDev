@@ -13,20 +13,22 @@ interface Event {
     id: number;
     name: string;
     email: string;
+    username: string;
   };
   rsvps?: {
-    id: number;
+    event_id: number;
     name: string;
     email: string;
   }[];
 }
 
-const loadEventsData = async () => {
+const loadEventsData = async (): Promise<Event[]> => {
   try {
     const response = await fetch(`${API_URL}/events`);
     return response.json();
   } catch (e) {
     console.error(e);
+    return []
   }
 };
 
@@ -119,8 +121,9 @@ export const EventsSection = (title: string, events: Event[]) => {
 // https://developer.mozilla.org/en-US/docs/Glossary/IIFE
 export const Events = await (async () => {
   const all = await loadEventsData();
-  const past = all.filter((e: Event) => new Date(e.date) < new Date());
-  const upcoming = all.filter((e: Event) => new Date(e.date) > new Date());
+  const past = all && all.filter((e: Event) => new Date(e.date) < new Date());
+  const upcoming =
+    all && all.filter((e: Event) => new Date(e.date) > new Date());
   return `
     ${EventsSection("Upcoming", upcoming)}
     ${EventsSection("Past", past)}

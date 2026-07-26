@@ -564,3 +564,24 @@ import ... from './icons.ts'
 
 165. What types of values can the JavaScript Date constructor accept according to TypeScript's type definitions?
 165. According to TypeScript's built-in type definitions, the Date constructor can accept three types of values: a string, a number, or another Date object. This allows for flexible date creation from different input formats.
+
+166. In TypeScript, how do you annotate the return type of an asynchronous function that returns an array of events?
+166. You annotate it after the function parameters using Promise<Event[]>. The Promise wrapper is required because async functions always return promises, and the angle brackets contain the type parameter specifying what the promise resolves to.
+
+167. How does TypeScript infer the type of elements when using the map method on a typed array?
+
+For example, given:
+
+const events: Event[] = [...]
+events.map(e => { ... })
+
+167. TypeScript uses the generic type signature of the map method and the known type of the array to infer the type of individual elements. If events is typed as Event[], TypeScript knows that map will pass individual Event objects to the callback function, so the parameter e is automatically inferred to be of type Event.
+
+168. What is the difference between the any type and the unknown type in TypeScript?
+168. any means TypeScript doesn't care what type something is and won't perform type checking. unknown means TypeScript cares about the type but doesn't know what it is yet, requiring you to perform type checking or narrowing before using the value.
+
+169. Why might returning an empty array in a catch block be preferable to returning undefined when the return type is Promise<Event[]>?
+169. Returning an empty array maintains type consistency with the declared return type. Code that consumes the function can safely use array methods (like map, filter, etc.) on the result without additional null/undefined checks. An empty array is still a valid array, while undefined would violate the type contract.
+
+170. What does TypeScript's never[] type represent, and when might you encounter it?
+170. never[] represents an array that will never contain anything. You might encounter it when returning an empty array literal without any type context or operations that would populate it, and TypeScript cannot infer what type of elements should be in the array.
